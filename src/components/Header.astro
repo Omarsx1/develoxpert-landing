@@ -1,79 +1,107 @@
 ---
 import Logo from "./Logo.astro";
 import Toggle from "./Toggle.astro";
+
+const navItems = [
+  {
+    title: "Inicio",
+    label: "inicio",
+    url: "/#inicio",
+  },
+  {
+    title: "Servicio",
+    label: "servicio",
+    url: "/#servicio",
+  },
+  {
+    title: "Acerca de",
+    label: "acerca-de",
+    url: "/#acerca-de",
+  },
+  {
+    title: "Contacto",
+    label: "contacto",
+    url: "/#contacto",
+  },
+];
 ---
 
 <header
   id="landing-header"
-  class="py-1 px-10 flex items-center fixed top-0 left-0 w-full justify-between z-40 text-black dark:text-white"
+  class="flex fixed top-0 z-10 items-center justify-center rounded-full w-full mx-auto mt-2"
 >
-  <div class="flex flex-grow basis-0">
+  <div class="flex flex-grow">
     <!-- <a href="./"><Logo /></a> -->
-    <img width="150" src="/public/img/logo-w.png" alt="Logo Develoxpert" />
+    <img
+      width="160"
+      class="pl-9"
+      src="/public/img/logo-w.png"
+      alt="Logo Develoxpert"
+    />
   </div>
 
-  <nav class="hidden xl:block sm:hidden">
-    <ul
-      class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 gap-5"
-    >
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Servicio</a></li>
-      <li><a href="#">Acerca de</a></li>
-      <li><a href="#">Contacto</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
+  <nav
+    class="flex flex-grow px-3 gap-8 text-sm font-semibold  dark:text-white text-[#03045B]"
+  >
+    {
+      navItems.map((link) => (
+        <a
+          class="relative block px-2 py-2 transition hover:text-green-600 dark:hover:text-[#09f]"
+          aria-label={link.label}
+          href={link.url}
+        >
+          {link.title}
+        </a>
+      ))
+    }
   </nav>
-
-  <nav class="flex flex-grow justify-end basis-0">
-    <ul
-      class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
-    >
-      <Toggle />
-    </ul>
-  </nav>
+  <ul
+    class="flex justify-end text-sm transition-colors duration-500 text-gray-500 dark:text-gray-400 font-medium px-2 py-0"
+  >
+    <Toggle />
+  </ul>
 </header>
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navitems = document.querySelectorAll("header nav a")
+    const sections = document.querySelectorAll("section");
+    const navitems = document.querySelectorAll("header nav a");
 
-    const callback = (entries: any []) => {
+    const callback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          navitems.forEach((item)=> {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-green-500")
+          navitems.forEach((item) => {
+            if (item.getAttribute("aria-label") === entry.target.id) {
+              item.classList.add("text-green-500");
             } else {
-              item.classList.remove("text-green-500")
+              item.classList.remove("text-green-500");
             }
-          })
+          });
         }
-      })
-    }
-    
+      });
+    };
+
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
       threshold: 0.3,
-    })
-    
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
+    });
 
-    //cleaned function
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Limpiar función
     document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {        
-        observer.disconnect()
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
       }
-    }
-  })
+    };
+  });
 </script>
 
-
 <style>
-  header{
+  header {
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
@@ -81,7 +109,7 @@ import Toggle from "./Toggle.astro";
 
   @keyframes nav-shadown {
     to {
-      @apply shadow-lg ring-1 backdrop-blur bg-gray-800/10 ring-white/10;
+      @apply shadow-lg ring-1 backdrop-blur bg-gray-600/10 ring-white/10;
     }
   }
 </style>
