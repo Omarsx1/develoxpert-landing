@@ -5,10 +5,11 @@ import Toggle from "./Toggle.astro";
 
 <header
   id="landing-header"
-  class="py-3 px-10 flex items-center fixed top-0 left-0 w-full justify-between z-40 text-black dark:text-white"
+  class="py-1 px-10 flex items-center fixed top-0 left-0 w-full justify-between z-40 text-black dark:text-white"
 >
   <div class="flex flex-grow basis-0">
-    <!-- <a href="./"><Logo /></a> --> <img width="150" src="/public/img/logo-w.png" alt="">
+    <!-- <a href="./"><Logo /></a> -->
+    <img width="150" src="/public/img/logo-w.png" alt="Logo Develoxpert" />
   </div>
 
   <nav class="hidden xl:block sm:hidden">
@@ -30,64 +31,57 @@ import Toggle from "./Toggle.astro";
       <Toggle />
     </ul>
   </nav>
-
-  <div
-    id="menu-backdrop"
-    class={`
-      absolute bg-black/5 backdrop-blur-lg rounded
-      translate-x-[var(--left)] translate-y-[var(--top)]
-      left-0 top-0
-      w-[var(--width)] h-[var(--height)]
-      transition-all duration-500
-      ease-in-out opacity-0 -z-10
-    `}
-  >
-  </div>
 </header>
 
 <script>
-  const listItem = document.querySelectorAll("#landing-header li");
-  const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section")
+    const navitems = document.querySelectorAll("header nav a")
 
-  listItem.forEach((item) => {
-    item.addEventListener("mouseenter", () => {
-      const { left, top, width, height } = item.getBoundingClientRect();
+    const callback = (entries: any []) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navitems.forEach((item)=> {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-green-500")
+            } else {
+              item.classList.remove("text-green-500")
+            }
+          })
+        }
+      })
+    }
+    
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
+    
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
 
-      menuBackDrop.style.setProperty("--left", `${left}px`);
-      menuBackDrop.style.setProperty("--top", `${top}px`);
-      menuBackDrop.style.setProperty("--width", `${width}px`);
-      menuBackDrop.style.setProperty("--height", `${height}px`);
-
-      menuBackDrop.style.opacity = "1";
-      menuBackDrop.style.visibility = "visible";
-    });
-
-    item.addEventListener("mouseleave", () => {
-      menuBackDrop.style.opacity = "0";
-      menuBackDrop.style.visibility = "hidden";
-    });
-  });
-</script>
-
-<script>
-  const headerEl = document.querySelector("#landing-header") as HTMLElement;
-
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px", // en cuanto se vea el elemento
-    threshold: 0.9, // porcentaje de visibilidad
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const { isIntersecting } = entry;
-      if (isIntersecting) {
-        const color = entry.target.getAttribute("data-header-color");
-        headerEl.style.color = color;
+    //cleaned function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {        
+        observer.disconnect()
       }
-    });
-  }, observerOptions);
-
-  const sectionElements = document.querySelectorAll(".landing-section");
-  sectionElements.forEach((section) => observer.observe(section));
+    }
+  })
 </script>
+
+
+<style>
+  header{
+    animation: nav-shadown 1s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+  }
+
+  @keyframes nav-shadown {
+    to {
+      @apply shadow-lg ring-1 backdrop-blur bg-gray-800/10 ring-white/10;
+    }
+  }
+</style>
