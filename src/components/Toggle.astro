@@ -1,16 +1,23 @@
-<script>
-  function toggleTheme() {
-    const themeButton = document.querySelector(".theme-toggle");
-    themeButton.classList.toggle("dark:bg-gray-900");
-    // Otra lógica para cambiar entre temas
-  }
+<script type="module">
+  import '/themeToggle.js';
 </script>
 
 <button
   class="theme-toggle w-16 h-16 rounded-full hover:bg-transparent"
   title="Toggle theme"
-  onclick="toggleTheme()"
+  onclick='toggleTheme()'
 >
+  <span class="sr-only">Toggle theme</span>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    width="1em"
+    height="1em"
+    fill="currentColor"
+    stroke-linecap="round"
+    class="w-6 h-6"
+    viewBox="0 0 32 32"
+  >
   <span class="sr-only">Toggle theme</span>
   <svg
     xmlns="http://www.w3.org/2000/svg"
