@@ -1,5 +1,4 @@
 ---
-import Logo from "./Logo.astro";
 import Toggle from "./Toggle.astro";
 
 const navItems = [
@@ -46,7 +45,7 @@ const navItems = [
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-green-600 dark:hover:text-[#09f]"
+          class="relative px-2 py-2 transition hover:text-green-600 dark:hover:text-[#09f]"
           aria-label={link.label}
           href={link.url}
         >
@@ -56,7 +55,7 @@ const navItems = [
     }
   </nav>
   <ul
-    class="flex justify-end text-sm transition-colors duration-500 text-gray-500 dark:text-gray-400 font-medium px-2 py-0"
+    class="flex text-sm transition-colors duration-500 text-gray-500 dark:text-gray-400 font-medium px-2 py-0"
   >
     <Toggle />
   </ul>
