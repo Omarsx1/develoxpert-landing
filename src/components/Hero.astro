@@ -1,33 +1,30 @@
 ---
-import ButtonBackgroundShine from "./ButtonHero.astro";
-import Toggle from "./Toggle.astro";
+import ButtonHero from "./ButtonHero.astro";
 ---
 
 <section>
   <div
-    class="grid max-w-screen-xl mt-20 px-4 py-8 mx-auto lg:gap-10 xl:gap-0 lg:py-16 lg:grid-cols-12"
+    class="grid max-w-screen-2xl mt-20 px-4 py-8 mx-auto md:gap-10 xl:gap-0 md:py-16 md:grid-cols-12"
   >
-    <div class="mr-auto place-self-center lg:col-span-7">
+    <div class="place-self-center md:col-span-7">
+      <!-- Cambio aquí -->
       <h1
         class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-black"
       >
         DESARROLLO DE SOFTWARE
       </h1>
       <p
-        class="max-w-2xl mb-6 font-medium text-black lg:mb-8 md:text-lg lg:text-xl dark:text-white"
+        class="max-w-2xl mb-6 font-mediummd:mb-8 md:text-md md:text-xl dark:text-white text-black"
       >
         Impulsando negocios con soluciones digitales
       </p>
       <div class="flex gap-10">
-        <ButtonBackgroundShine />
+        <ButtonHero />
       </div>
     </div>
     <!-- colocar la imagen -->
-    <div class="hidden w-auto h-auto lg:mt-0 lg:col-span-5 lg:flex">
-      <img
-        src="/portada1.webp"
-        alt="imagen de portada principal"
-      />
-    </div>
+    <picture class="hidden w-auto h-auto md:mt-0 md:col-span-5 md:flex">
+      <img loading="lazy" src="/portada1.webp" alt="portada mujer con laptop" />
+    </picture>
   </div>
 </section>
