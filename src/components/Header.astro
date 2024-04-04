@@ -33,15 +33,21 @@ const navItems = [
     <!-- <a href="./"><Logo /></a> -->
     <img
       width="170"
-      class="pl-9"
-      src="/img/logo-w.png"
+      class="pl-9 block dark:hidden"
+      src="/img/logo-w.webp"
       alt="Logo Develoxpert"
+    />
+    <img 
+    width="170"
+    class="pl-9 hidden dark:block"
+    src="/img/logo-d.webp" 
+    alt="Logo Develoxpert"
     />
   </div>
 
   <nav
     id= "mobile-menu"
-    class="hidden md:flex sm:flex-grow px-3 gap-6 text-md font-semibold  dark:text-white text-[#0e0f6d]"
+    class="hidden md:flex sm:flex-grow px-3 gap-6 text-lg font-semibold  dark:text-white text-[#0e0f6d]"
   >
     {
       navItems.map((link) => (
