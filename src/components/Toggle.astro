@@ -1,38 +1,85 @@
-<script type="module">
-  import '/themeToggle.js';
-</script>
-
-<button
-  class="theme-toggle w-16 h-16 rounded-full hover:bg-transparent"
-  title="Toggle theme"
-  onclick='toggleTheme()'
->
-  <span class="sr-only">Toggle theme</span>
+<label id="theme-toggle" for="chk" class="w-12 cursor-pointer transition-all">
+  <!-- Icono del sol para el tema oscuro -->
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
     width="1em"
     height="1em"
-    fill="currentColor"
-    stroke-linecap="round"
-    class="w-6 h-6"
+    fill="currentcolor"
+    class="theme-toggle__classic w-6 h-6 hidden dark:block"
     viewBox="0 0 32 32"
   >
-    <clipPath id="theme-toggle__classic__cutout">
-      <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z"></path>
+    <clipPath id="theme-toggle__around__cutout">
+      <path d="M0 0h42v30a1 1 0 00-16 13H0Z"></path>
     </clipPath>
-    <g clip-path="url(#theme-toggle__classic__cutout)">
-      <circle cx="16" cy="16" r="9.34"></circle>
-      <g stroke="currentColor" stroke-width="1.5">
-        <path d="M16 5.5v-4"></path>
-        <path d="M16 30.5v-4"></path>
-        <path d="M1.5 16h4"></path>
-        <path d="M26.5 16h4"></path>
-        <path d="m23.4 8.6 2.8-2.8"></path>
-        <path d="m5.7 26.3 2.9-2.9"></path>
-        <path d="m5.8 5.8 2.8 2.8"></path>
-        <path d="m23.4 23.4 2.9 2.9"></path>
+    <g clip-path="url(#theme-toggle__around__cutout)">
+      <circle cx="16" cy="16" r="8.4"></circle>
+      <g>
+        <circle cx="16" cy="3.3" r="2.3"></circle>
+        <circle cx="27" cy="9.7" r="2.3"></circle>
+        <circle cx="27" cy="22.3" r="2.3"></circle>
+        <circle cx="16" cy="28.7" r="2.3"></circle>
+        <circle cx="5" cy="22.3" r="2.3"></circle>
+        <circle cx="5" cy="9.7" r="2.3"></circle>
       </g>
     </g>
   </svg>
-</button>
+  <svg
+  aria-hidden="true"
+  class="icon-tabler icon-tabler-moon w-6 h-6 block dark:hidden"
+  width="15"
+  height="15"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  fill="none"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <path
+    d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"
+  ></path>
+</svg> 
+
+</label>
+<input type="checkbox" id="chk" class="hidden" />
+
+
+<script>
+// Función para alternar entre los temas claro y oscuro
+const toggleTheme = () => {
+  const body = document.body;
+  const isDark = body.classList.contains("dark");
+  const newTheme = isDark ? "light" : "dark";
+
+  // Cambiar el tema y guardar la preferencia en el almacenamiento local
+  body.classList.toggle("dark");
+  localStorage.setItem("theme", newTheme);
+
+  // Cambiar el icono
+  const icon = document.querySelector(".theme-toggle__classic");
+  if (newTheme === "dark") {
+    icon.classList.remove("hidden");
+  } else {
+    icon.classList.add("hidden");
+  }
+};
+
+// Cargar el tema al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  const body = document.body;
+  const icon = document.querySelector(".theme-toggle__classic");
+
+  if (savedTheme === "dark") {
+    body.classList.add("dark");
+    icon.classList.remove("hidden");
+  } else {
+    icon.classList.add("hidden");
+  }
+});
+
+// Asignar el evento de cambio al input checkbox
+document.getElementById("chk").addEventListener("change", toggleTheme);
+
+</script>
