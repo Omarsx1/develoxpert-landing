@@ -1,0 +1,197 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact Page">
+  <section
+    class="antialiased bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] dark:bg-[#0d0e12] px-4"
+  >
+    <div class="flex w-full min-h-screen justify-center items-center">
+      <h1
+        class="absolute top-28 left-1/2 transform -translate-x-1/2 font-bold text-4xl tracking-wide text-black dark:text-white"
+      >
+        Contáctenos
+      </h1>
+      <div
+        class="flex flex-grow w-full mt-0 mb-16 justify-center items-center pt-52"
+      >
+        <div
+          class="flex flex-col md:flex-row md:space-x-6 space-y-6 ring-1 ring-gray-300/10 bg-[#0d0e12] w-full max-w-4xl p-8 rounded-xl shadow-lg text-white"
+        >
+          <div class="flex flex-col space-y-8">
+            <div>
+              <h1 class="font-bold text-lg py-2">Ponerse en contacto</h1>
+              <p class="pt-2 text-white text-sm text-pretty">
+                Le agradecemos su interés. Nuestro amable equipo siempre está
+                aquí para contactar con usted.
+              </p>
+            </div>
+
+            <div class="flex flex-col space-y-6">
+              <div class="inline-flex space-x-2 items-center">
+                <p class="text-lg flex items-center">
+                  <ion-icon
+                    name="chatbox-ellipses-outline"
+                    class="text-teal-300 text-xl"></ion-icon><p></p>Habla con
+                  nosotros
+                </p>
+              </div>
+              <div>
+                <p>nuestro amigable equipo está aquí para ayudar</p>
+                <a href="#">contacto@develoxpert.com</a>
+              </div>
+              <div class="inline-flex space-x-2 items-center">
+                <p class="text-lg flex items-center">
+                  <ion-icon name="call-outline" class="text-teal-300 text-xl"
+                  ></ion-icon><p></p> Teléfono
+                </p>
+              </div>
+              <div>
+                <p>Lun - vie de 8am a 7pm</p>
+                <a href="#" type="tel">(+51) 972 007 175</a>
+              </div>
+            </div>
+            <div class="flex items-center md:pb-0 pb-4 md:pt-8 gap-4">
+              <a href="#">
+                <ion-icon class="w-8 h-8" name="logo-linkedin"></ion-icon>
+              </a>
+              <a href="#">
+                <ion-icon class="w-8 h-8" name="logo-facebook"></ion-icon>
+              </a>
+              <a href="#">
+                <ion-icon class="w-8 h-8" name="logo-instagram"></ion-icon>
+              </a>
+              <a href="#">
+                <svg
+                  class="py-0 mb-1 pt-0 w-7 h-7"
+                  width="1200"
+                  height="1227"
+                  fill="none"
+                  viewBox="0 0 1200 1227"
+                  ><path
+                    fill="#fff"
+                    d="M714.163 519.284 1160.89 0h-105.86L667.137 450.887 357.328 0H0l468.492 681.821L0 1226.37h105.866l409.625-476.152 327.181 476.152H1200L714.137 519.284h.026ZM569.165 687.828l-47.468-67.894-377.686-540.24h162.604l304.797 435.991 47.468 67.894 396.2 566.721H892.476L569.165 687.854v-.026Z"
+                  ></path></svg
+                >
+              </a>
+            </div>
+          </div>
+
+          <!-- Formulario de contacto  -->
+          <div class="formulario ring-1 ring-gray-500/5 rounded-xl shadow-lg p-8 text-white">
+            <form action="" class="flex flex-col space-y-4">
+              <div class="">
+                <h3 class="font-bold text-sm md:text-lg">
+                  ¡Sube de nivel tu marca!
+                </h3>
+                <p class="text-xs md:text-lg mb-8">
+                  Puede comunicarse a través de
+                  <a
+                    href="mailto:asistencia.develoxpert.com"
+                    class="text-green-600 font-medium hover:text-green-500"
+                    >asistencia.develoxpert.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="md:px-4">
+                <label for="name" class="text-sm"
+                  >Nombre
+                  <input
+                    type="text"
+                    placeholder="Tu nombre aquí"
+                    class="ring-1 bg-[#0d0e12] focus:bg-[#0d0e12] ring-gray-300/10 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300/10"
+                  />
+                </label>
+              </div>
+
+              <div class="md:px-4">
+                <label for="email" class="text-sm"
+                  >Correo
+                  <input
+                    type="email"
+                    placeholder="correo@corporación.com"
+                    class="ring-1 bg-[#0d0e12] focus:bg-[#0d0e12] ring-gray-300/10 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300/10"
+                  />
+                </label>
+              </div>
+
+              <div class="md:px-4">
+                <label for="tel" class="text-sm"
+                  >Teléfono
+                  <input
+                    type="tel"
+                    placeholder="Tu nombre aquí"
+                    class="ring-1 bg-[#0d0e12] focus:bg-[#0d0e12] ring-gray-300/10 w-full rounded-md px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300/10"
+                  />
+                </label>
+              </div>
+
+              <div class="md:px-4">
+                <label for="tel" class="text-sm"
+                  >¿Como podemos ayudarte?
+                  <textarea
+                  name=""
+                  id=""
+                  rows="4"
+                  placeholder="Cuéntanos un poco sobre el proyecto..."
+                  class="areatext md:w-[300px] ring-1 bg-[#0d0e12] focus:bg-[#0d0e12] ring-gray-300/10 overflow-hidden rounded-md box-content  px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300/10"
+                ></textarea>
+                </label>
+              </div>
+
+              <div class="md:px-4">
+                <button
+                  type="submit"
+                  class="bg-green-600 text-gray-300 font-bold py-2 px-4 rounded-md hover:bg-green-700"
+                  >Enviar</button
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+<style>
+  .formulario {
+    background: radial-gradient(
+        circle at top right,
+        #102117,
+        #0d0e12 50%,
+        #0d0e12 100%
+      ),
+      radial-gradient(circle at bottom left, #102117, #0d0e12 50%, #0d0e12 100%);
+  }
+
+  .areatext {
+    field-sizing: content;
+  }
+
+  textarea {
+    padding: 8px 8px;
+    width: calc(100% - 16px); /* 100% del contenedor menos el padding */
+  }
+
+  @media screen and (min-width: 200px) {
+    textarea {
+      /* Interpolación lineal entre 90% y 370px cuando la pantalla está entre 200px y 450px */
+      width: calc((90% - 16px) * ((100vw - 200px) / 150) + (370px * ((450px - 100vw) / 150)));
+    }
+  }
+
+  @media screen and (min-width: 400px) {
+    textarea {
+      width: 370px; /* Ancho fijo de 370px cuando la pantalla es de 400px o más */
+    }
+  }
+
+
+</style>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script
+  nomodule
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

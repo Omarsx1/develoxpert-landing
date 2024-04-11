@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.5.8",
+    "astro": "^4.5.18",
     "astro-color-scheme": "^1.1.2",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "remixicon": "^4.2.0",
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
