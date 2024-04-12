@@ -78,7 +78,9 @@ import Layout from "../layouts/Layout.astro";
           </div>
 
           <!-- Formulario de contacto  -->
-          <div class="formulario ring-1 ring-gray-500/5 rounded-xl shadow-lg p-8 text-white">
+          <div
+            class="formulario ring-1 ring-gray-500/5 rounded-xl shadow-lg p-8 text-white"
+          >
             <form action="" class="flex flex-col space-y-4">
               <div class="">
                 <h3 class="font-bold text-sm md:text-lg">
@@ -131,12 +133,12 @@ import Layout from "../layouts/Layout.astro";
                 <label for="tel" class="text-sm"
                   >¿Como podemos ayudarte?
                   <textarea
-                  name=""
-                  id=""
-                  rows="4"
-                  placeholder="Cuéntanos un poco sobre el proyecto..."
-                  class="areatext md:w-[300px] ring-1 bg-[#0d0e12] focus:bg-[#0d0e12] ring-gray-300/10 overflow-hidden rounded-md box-content  px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300/10"
-                ></textarea>
+                    name=""
+                    id=""
+                    rows="4"
+                    placeholder="Cuéntanos un poco sobre el proyecto..."
+                    class="areatext md:w-[300px] ring-1 bg-[#0d0e12] focus:bg-[#0d0e12] ring-gray-300/10 overflow-hidden rounded-md box-content px-4 py-2 outline-none focus:ring-2 focus:ring-teal-300/10"
+                  ></textarea>
                 </label>
               </div>
 
@@ -177,7 +179,10 @@ import Layout from "../layouts/Layout.astro";
   @media screen and (min-width: 200px) {
     textarea {
       /* Interpolación lineal entre 90% y 370px cuando la pantalla está entre 200px y 450px */
-      width: calc((90% - 16px) * ((100vw - 200px) / 150) + (370px * ((450px - 100vw) / 150)));
+      width: calc(
+        (90% - 16px) * ((100vw - 200px) / 150) +
+          (370px * ((450px - 100vw) / 150))
+      );
     }
   }
 
@@ -186,8 +191,6 @@ import Layout from "../layouts/Layout.astro";
       width: 370px; /* Ancho fijo de 370px cuando la pantalla es de 400px o más */
     }
   }
-
-
 </style>
 <script
   type="module"
