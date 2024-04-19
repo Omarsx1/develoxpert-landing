@@ -4,26 +4,26 @@ import ButtonHero from "./ButtonHero.astro";
 
 <section>
   <div
-    class="grid max-w-screen-2xl mt-20 px-4 py-8 mx-auto md:gap-10 xl:gap-0 md:py-16 md:grid-cols-12"
+    class="flex justify-center max-w-screen-2xl mt-20 md:px-10 gap-10 py-8 md:py-16"
   >
-    <div class="place-self-center md:col-span-7">
+    <div class="px-6 md:px-0">
       <!-- Cambio aquí -->
       <h1
-        class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-black"
+        class="text-4xl w-64 sm:w-[450px] font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white text-black"
       >
         DESARROLLO DE SOFTWARE
       </h1>
       <p
-        class="max-w-2xl mb-6 font-mediummd:mb-8 md:text-md md:text-xl dark:text-white text-black"
+        class="max-w-2xl mt-2 mb-6 font-medium md:mb-8 md:text-md md:text-xl dark:text-white text-black"
       >
         Impulsando negocios con soluciones digitales
       </p>
-      <div class="flex gap-10">
+      <div class="flex">
         <ButtonHero />
       </div>
     </div>
     <!-- colocar la imagen -->
-    <picture class="hidden w-auto h-auto md:mt-0 md:col-span-5 md:flex">
+    <picture class="hidden w-44 h-auto md:mt-0 md:flex">
       <img loading="lazy" src="/portada1.webp" alt="portada mujer con laptop" />
     </picture>
   </div>
