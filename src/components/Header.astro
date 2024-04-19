@@ -27,7 +27,7 @@ const navItems = [
 
 <header
   id="landing-header"
-  class="container flex fixed top-1 z-10 mx-auto items-center rounded-full w-full mt-2"
+  class="container-xl flex fixed top-1 z-10 mx-auto items-center rounded-full w-full mt-2"
 >
   <div class="flex-grow px-0">
     <!-- <a href="./"><Logo /></a> -->
@@ -122,7 +122,8 @@ const navItems = [
       observer.observe(section);
     });
 
-     document.onvisibilitychange = () => {
+
+    document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
         observer.disconnect();
       }
@@ -145,8 +146,6 @@ const navItems = [
   @keyframes nav-shadown {
     to {
       @apply shadow-lg ring-1 backdrop-blur bg-gray-600/10 ring-white/10;
-      display: flex;
-      justify-content: space-around;
     }
   }
 
