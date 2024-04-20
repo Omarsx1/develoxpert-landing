@@ -14,9 +14,14 @@ import Reviews from "../components/reviews.astro";
       </Hero>
     </SectionContainer>
     <SectionContainer class="py-8 md:py-0">
-    <Publicacion />
+      <Publicacion>
+        <slot />
+      </Publicacion>
     </SectionContainer>
-    <Reviews />
+    <SectionContainer class="py-8 md:py-0">
+      <Reviews>
+        <slot />
+      </Reviews>
+    </SectionContainer>
   </main>
 </Layout>
-
