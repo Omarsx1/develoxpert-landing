@@ -1,17 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Marquee from "../components/Marquee.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Publicacion from "../components/publicacion.astro";
 import Reviews from "../components/reviews.astro";
+import Banner from "../components/Banner.astro";
+import Bg from "../components/bg.astro";
 ---
 
 <Layout title="Develoxpert">
-  <main class="overflow-y-auto overflow-x-hidden scroll-smooth px-4">
+  <Bg />
+  <main
+    class="overflow-y-auto overflow-x-hidden scroll-smooth antialiased bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] dark:bg-[#0d0e12] px-4"
+  >
     <SectionContainer class="py-8 md:py-0">
       <Hero>
         <slot />
       </Hero>
+      <Marquee />
     </SectionContainer>
     <SectionContainer class="py-8 md:py-0">
       <Publicacion>
@@ -24,4 +31,5 @@ import Reviews from "../components/reviews.astro";
       </Reviews>
     </SectionContainer>
   </main>
+  <Banner />
 </Layout>
