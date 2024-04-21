@@ -27,8 +27,9 @@ const navItems = [
 
 <header
   id="landing-header"
-  class="container-xl flex fixed top-1 z-10 mx-auto items-center rounded-full w-full mt-2"
+  class="container-xl flex fixed top-1 z-10 mx-auto items-center  w-full mt-2 justify-center"
 >
+<div id="header__container" class="container flex items-center justify-normal rounded-full w-full ">
   <div class="flex-grow px-0">
     <!-- <a href="./"><Logo /></a> -->
     <img
@@ -91,6 +92,9 @@ const navItems = [
       <Toggle />
     </div>
   </div>
+
+</div>
+
 </header>
 
 <script>
@@ -136,7 +140,7 @@ const navItems = [
 </script>
 
 <style>
-  header {
+  #header__container{
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
